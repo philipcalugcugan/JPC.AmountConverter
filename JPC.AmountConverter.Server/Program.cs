@@ -6,34 +6,20 @@ namespace JPC.AmountConverter.Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var configuration = builder.Configuration;
+            builder.Services.AddSingleton(configuration);
 
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            // Use the Startup class for configuration
+            var startup = new Startup(configuration);
+            startup.ConfigureServices(builder.Services);
 
             var app = builder.Build();
+            var env = app.Environment;
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (env.IsDevelopment() || env.IsProduction())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                startup.Configure(app, env);
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.MapFallbackToFile("/index.html");
 
             app.Run();
         }
