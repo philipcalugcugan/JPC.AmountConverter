@@ -46,7 +46,10 @@ namespace JPC.AmountConverter.Server
             if (env.IsDevelopment() || env.IsProduction())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("v1/swagger.json", "Amount Converter API V1");
+                });
             }
 
             app.UseHttpsRedirection();

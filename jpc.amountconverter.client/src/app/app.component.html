@@ -1,25 +1,17 @@
+
+<!---------------------------------- Back-end  ---------------------------------->
 <!-- Remove the header and changed it into my name -->
+<!-- Removed weather forecast -->
+<!-- Added startup.cs configuration file for adding services -->
+<!-- Added RestSharp package for REST Api request -->
+<!-- Added Newtonsoft.Json package for data mapping -->
+<!-- Used RapidApi (this is a free version) to get the amount in words to demonstrate dependency injection, service layer and clean architecture -->
+<!---------------------------------- Back-end  ---------------------------------->
+
+<!---------------------------------- Front-end  ---------------------------------->
+<!-- API URL: https://localhost:7141/swagger/index.html -->
+<!-- Added Nswag for typescript model generation using OpenAPI -->
+<!---------------------------------- Front-end  ---------------------------------->
+
+
 <h1>John Philip Calugcugan</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
