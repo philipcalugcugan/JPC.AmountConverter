@@ -64,8 +64,6 @@ namespace JPC.AmountConverter.Server
             }
 
             app.UseCors("AllowAllOrigins");
-            // app.UseHttpsRedirection();
-            // app.UseAuthorization();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
