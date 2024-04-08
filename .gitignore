@@ -27,3 +27,7 @@
 /JPC.AmountConverter.Server/obj/JPC.AmountConverter.Server.csproj.nuget.dgspec.json
 /JPC.AmountConverter.Server/obj/project.assets.json
 /JPC.AmountConverter.Server/obj/project.nuget.cache
+/JPC.AmountConverter.Server/obj/Debug/net8.0/ref
+/JPC.AmountConverter.Server/obj/Debug/net8.0/refint
+/JPC.AmountConverter.Server/obj/Debug/net8.0/staticwebassets
+/JPC.AmountConverter.Server/obj/Debug/net8.0
