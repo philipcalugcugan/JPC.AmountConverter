@@ -1,0 +1,19 @@
+<div class="my-container">
+    <h1>
+        John Philip Calugcugan
+    </h1>
+    <mat-card class="amount-input">
+        <form [formGroup]="amountForm" (ngSubmit)="submitForm();">
+            <mat-form-field class="form-element">
+                <mat-label>Enter amount:</mat-label>
+                <input matInput formControlName="amount" type="number" required>
+            </mat-form-field>
+        
+            <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button">Submit</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
+
+

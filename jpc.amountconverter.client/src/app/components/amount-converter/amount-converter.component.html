@@ -1,0 +1,8 @@
+<div class="my-container" *ngIf="amountInWords$ | async as amountInWords"> 
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Amount in words:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="white-text">{{ amountInWords.words }}</mat-card-content>
+    </mat-card>
+</div>

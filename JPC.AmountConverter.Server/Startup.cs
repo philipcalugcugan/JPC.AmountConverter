@@ -34,6 +34,17 @@ namespace JPC.AmountConverter.Server
                 });
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             // Add your services here
             services.Configure<AmountConverterConfiguration>(Configuration.GetSection("RapidApi"));
             services.AddTransient(provider => provider.GetRequiredService<IOptions<AmountConverterConfiguration>>().Value);
@@ -52,8 +63,9 @@ namespace JPC.AmountConverter.Server
                 });
             }
 
-            app.UseHttpsRedirection();
-            app.UseAuthorization();
+            app.UseCors("AllowAllOrigins");
+            // app.UseHttpsRedirection();
+            // app.UseAuthorization();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

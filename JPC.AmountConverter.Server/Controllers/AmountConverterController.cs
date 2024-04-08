@@ -31,7 +31,7 @@ namespace JPC.AmountConverter.Server.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("api/moneyconverter/{amount}")]
+        [Route("api/ConvertAmountToWords/{amount}")]
         public async Task<ActionResult<AmountConverterResponseDto>> ConvertToWords(decimal amount, CancellationToken cancellationToken)
         {
             return Ok(await _amountConverterService.GetAmountToWords(amount, cancellationToken));

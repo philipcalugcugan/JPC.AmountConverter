@@ -29,8 +29,8 @@ export class AmountConverterServiceProxy {
     /**
      * @return Success
      */
-    moneyconverter(amount: number): Observable<AmountConverterResponseDto> {
-        let url_ = this.baseUrl + "/AmountConverter/api/moneyconverter/{amount}";
+    convertAmountToWords(amount: number): Observable<AmountConverterResponseDto> {
+        let url_ = this.baseUrl + "/AmountConverter/api/ConvertAmountToWords/{amount}";
         if (amount === undefined || amount === null)
             throw new Error("The parameter 'amount' must be defined.");
         url_ = url_.replace("{amount}", encodeURIComponent("" + amount));
@@ -45,11 +45,11 @@ export class AmountConverterServiceProxy {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processMoneyconverter(response_);
+            return this.processConvertAmountToWords(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processMoneyconverter(response_ as any);
+                    return this.processConvertAmountToWords(response_ as any);
                 } catch (e) {
                     return _observableThrow(e) as any as Observable<AmountConverterResponseDto>;
                 }
@@ -58,7 +58,7 @@ export class AmountConverterServiceProxy {
         }));
     }
 
-    protected processMoneyconverter(response: HttpResponseBase): Observable<AmountConverterResponseDto> {
+    protected processConvertAmountToWords(response: HttpResponseBase): Observable<AmountConverterResponseDto> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
