@@ -1,6 +1,5 @@
 ﻿using JPC.AmountConverter.Application.AmountConverterService;
 using JPC.AmountConverter.Application.Shared.Dto;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JPC.AmountConverter.Server.Controllers

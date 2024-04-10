@@ -1,7 +1,4 @@
 ﻿using JPC.AmountConverter.Application.AmountConverterService;
-using JPC.AmountConverter.Application.Shared.Configuration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 namespace JPC.AmountConverter.Server
@@ -46,8 +43,6 @@ namespace JPC.AmountConverter.Server
             });
 
             // Add your services here
-            services.Configure<AmountConverterConfiguration>(Configuration.GetSection("RapidApi"));
-            services.AddTransient(provider => provider.GetRequiredService<IOptions<AmountConverterConfiguration>>().Value);
             services.AddTransient<IAmountConverterService, AmountConverterService>(); // Added the created service in Transient Lifetime
         }
 
