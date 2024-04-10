@@ -1,6 +1,6 @@
 **Amount Converter**
 
-Puts numeric amount into words using Rapid API
+Puts numeric amount into words
 
 
 
