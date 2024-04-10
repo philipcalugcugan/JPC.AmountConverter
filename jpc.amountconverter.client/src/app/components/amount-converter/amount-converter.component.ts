@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AmountConverterResponseDto, AmountConverterServiceProxy } from '../../shared/services/service-proxies/service-proxies';
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
+import { AmountConverterResponseDto } from '../../shared/interface/amount-converter-dto';
+import { AmountConverterService } from '../../shared/services/amount-converter.service';
 
 @Component({
 	selector: 'app-amount-converter',
@@ -13,7 +14,7 @@ export class AmountConverterComponent implements OnInit {
 	amountInWords$: Observable<AmountConverterResponseDto>;
 
 	constructor(private route: ActivatedRoute,
-		private amountConverterService: AmountConverterServiceProxy,
+		private amountConverterService: AmountConverterService,
 	) {}
 
 	ngOnInit() {

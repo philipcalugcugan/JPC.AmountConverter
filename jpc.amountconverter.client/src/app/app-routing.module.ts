@@ -13,7 +13,7 @@ const routes: Routes = [
         { path: 'amount-input', component: AmountInputComponent },
         { path: 'amount-converter/:amount', component: AmountConverterComponent },
     ],
-},
+  },
 ];
 
 @NgModule({

@@ -5,22 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AmountConverterComponent } from './components/amount-converter/amount-converter.component';
-import { ServiceProxyModule } from './shared/services/service-proxies/service-proxy.module';
 import { AmountInputComponent } from './components/amount-input/amount-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './shared/material/material.module';
+import { AmountConverterService } from './shared/services/amount-converter.service';
 
 @NgModule({
   declarations: [
-    AppComponent, AmountConverterComponent, AmountInputComponent
+    AppComponent, AmountConverterComponent, AmountInputComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, ServiceProxyModule, ReactiveFormsModule, MaterialModule
+    AppRoutingModule, ReactiveFormsModule, MaterialModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(), AmountConverterService
   ],
   bootstrap: [AppComponent]
 })
